@@ -17,7 +17,6 @@ I'm Sam (or santiagosayshey as many people online know me as). I'm a final year 
 
 #### Here are some fun facts about me:
 - I (la la) love the Pixies 🎶. I have every studio album in every available format (Vinyl, CD, SACD, Cassette), as well as their live albums, EPs, singles, and (almost) all their bootlegs. [Here's me](https://www.instagram.com/p/Cl6DFJ2onbs/?hl=en) at the bottom right front row of the Thebby at their Adelaide show in 2022! 🤘
-- My online username is inspired by the Pixies! Joey **Santiago** is their lead guitarist and a personal hero of mine. **Hey** is my favourite song by them. Hence, Santiago .. says ... Hey! 🎸
 - My programming rabbit hole started in my final year of high school when I discovered open directories after trying to find Game of Thrones episodes online. That led to me discovering Plex, trackers, automation, and finally, programming. It's a bit of a backwards journey, but I'm glad it happened this way 👨‍💻.
 - I'm a vocal advocate for all things mental health 🧠💚. I often talk (and write) about my journey to help others.
 - I host a local Plex Server for friends and family and use 0 streaming services. Not even Spotify! 🎥🏠
