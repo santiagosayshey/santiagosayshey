@@ -11,5 +11,5 @@ I'm Sam (or santiagosayshey as many people online know me as). I'm a final year 
 - [whoami](https://github.com/santiagosayshey/whoami-frontend) 🙋‍♂️ - A WIP online journaling / gratitude app I built to help with my mental health. 
 
 #### Here are some projects that I want to work on someday!
-- A fully polymorphic future proofed tracker framework built on NoSQL 💾.
-- A Survival / Roguelite / Base-builder inspired by The Walking Dead & Dave the Diver with impactful decisions, a branching narrative, and complex characters! 🧟‍♂️🏰
+- A polymorphic tracker framework  capable of processing all media types through NoSQL/
+- A survival / Roguelite / base-builder with impactful decisions, a branching narrative, and complex characters! 
