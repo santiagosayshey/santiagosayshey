@@ -7,7 +7,7 @@ I'm Sam (or santiagosayshey as many people online know me as). I'm a final year 
 - [Profilarr](https://github.com/santiagosayshey/Profilarr) 🛠️ - Some complimentary *arr scripts that helps to improve import / export / sync / delete functionality. Built in conjunction with Dictionarry.
 - [Rogue](https://github.com/santiagosayshey/Rogue) ⚔️ - A first year Object Oriented Programming project inspired by the most influential game of all time - [Rogue](https://en.wikipedia.org/wiki/Rogue_(video_game))
 - [ClubHub](https://github.com/santiagosayshey/ClubHub) 🎉 - A second year Web & Database Computing project to build a full stack Uni Club app. 
-- [DigiBrain](https://github.com/santiagosayshey/DigiBrain) 🧠 - A backup of my [Obsidian](https://obsidian.md/) containing all of my uni notes. 
+- [DigiBrain](https://github.com/santiagosayshey/DigiBrain) 🧠 - A backup of my [Obsidian](https://obsidian.md/) vault containing all of my uni notes. 
 - [whoami](https://github.com/santiagosayshey/whoami-frontend) 🙋‍♂️ - A WIP online journaling / gratitude app I built to help with my mental health. 
 
 #### Here are some projects that I want to work on someday!
