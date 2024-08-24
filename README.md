@@ -1,6 +1,6 @@
 ### [Hey!](https://www.youtube.com/watch?v=tVCUAXOBF7w) 👋
 
-I'm Sam (or santiagosayshey as many people online know me as). I'm a final year computer science student at the University of Adelaide with a passion for all things self hosting! 🌐
+I'm Sam, a final year computer science student at the University of Adelaide with a passion for all things self hosting! 🌐
 
 #### Here are some of my projects: 
 - [Dictionarry](https://dictionarry.pages.dev/) 📚 - A wiki dedicated to abstracting the complexity of media automation. Come say Hey in our [discord!](https://discord.com/invite/Y9TYP6jeYZ) 💬
