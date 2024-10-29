@@ -5,6 +5,7 @@ I'm Sam, a final year computer science student at the University of Adelaide wit
 #### Here are some of my projects: 
 - [Dictionarry](https://dictionarry.pages.dev/) 📚 - A wiki dedicated to abstracting the complexity of media automation. Come say Hey in our [discord!](https://discord.com/invite/Y9TYP6jeYZ) 💬
 - [Profilarr](https://github.com/santiagosayshey/Profilarr) 🛠️ - Some complimentary *arr scripts that helps to improve import / export / sync / delete functionality. Built in conjunction with Dictionarry.
+- [OMesh](https://github.com/santiagosayshey/OMesh) - A secure chat application based on [OLAF's Neighbourhood](https://github.com/xvk-64/2024-secure-programming-protocol); A protocol developed by 2024 Semester 2's Secure Programming class.
 - [Rogue](https://github.com/santiagosayshey/Rogue) ⚔️ - A first year Object Oriented Programming project inspired by the most influential game of all time - [Rogue](https://en.wikipedia.org/wiki/Rogue_(video_game))
 - [ClubHub](https://github.com/santiagosayshey/ClubHub) 🎉 - A second year Web & Database Computing project to build a full stack Uni Club app. 
 - [DigiBrain](https://github.com/santiagosayshey/DigiBrain) 🧠 - A backup of my [Obsidian](https://obsidian.md/) vault containing all of my uni notes. 
