@@ -87,14 +87,14 @@ const LastFmDisplay = ({ nowOnly = false }) => {
   if (nowOnly && !track["@attr"]?.nowplaying) {
     const randomMessage =
       NOISY_MESSAGES[Math.floor(Math.random() * NOISY_MESSAGES.length)];
-    return <div className="text-gray-200">{randomMessage}</div>;
+    return <div className="text-black">{randomMessage}</div>;
   }
 
   const youtubeLink = getYouTubeSearchLink(track.name, track.artist["#text"]);
   const isNowPlaying = track["@attr"]?.nowplaying === "true";
 
   return (
-    <div className="text-gray-200">
+    <div className="text-black">
       <p>
         {isNowPlaying ? "🎵 Now playing: " : "🎵 Last played: "}
         {track.name} - {track.artist["#text"]}
