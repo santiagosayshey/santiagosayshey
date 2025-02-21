@@ -10,14 +10,14 @@ const WhoamiOutput: React.FC = () => {
   return (
     <div
       className={`
-        space-y-1 
+        space-y-1
         transition-all duration-300 ease-out
         ${visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"}
       `}
     >
       <div>Hey there! 👋</div>
       <div>
-        I'm Sam, a final year computer science student at the University of
+        I&apos;m Sam, a final year computer science student at the University of
         Adelaide with a passion for all things self hosting! 🌐
       </div>
     </div>
