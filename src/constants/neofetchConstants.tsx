@@ -37,7 +37,7 @@ export const info: PersonalInfo[] = [
   {
     label: "Skills",
     value:
-      "Next.js, React, TypeScript, Node, Python, Flask, C++, SFML, MATLAB, Docker",
+      "Next.js, React, TypeScript, Node, Python, Flask, C++, SFML, MATLAB, SQL, MongoDB, Docker",
   },
   {
     label: "Current Focus",
