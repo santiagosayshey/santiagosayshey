@@ -79,7 +79,7 @@ export default function Terminal() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-black">
-      <div className="w-[1800px] bg-white dark:bg-[#2b2b2b] rounded-lg overflow-hidden shadow-2xl">
+      <div className="w-[1860px] bg-white dark:bg-[#2b2b2b] rounded-lg overflow-hidden shadow-2xl">
         {/* Header */}
         <div className="bg-gray-100 dark:bg-[#1e1e1e] px-4 h-12 flex items-center justify-between">
           {/* Left side */}
@@ -120,7 +120,7 @@ export default function Terminal() {
         {/* Terminal Content */}
         <div
           ref={terminalRef}
-          className="bg-white dark:bg-[#1A1D23] h-[1000px] p-4 overflow-y-auto cursor-text"
+          className="bg-white dark:bg-[#1A1D23] h-[960px] p-4 overflow-y-auto cursor-text"
           onClick={handleTerminalClick}
           style={{ fontFamily: "MesloLGS NF, monospace" }}
         >

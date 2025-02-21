@@ -5,60 +5,82 @@ import { PersonalInfo, info } from "@/constants/neofetchConstants";
 
 const Neofetch = () => {
   const infoRef = useRef<HTMLDivElement>(null);
-  const [imageSize, setImageSize] = useState(0);
+
+  // This ref tells us if the user *started* in portrait
+  // We only check it once, on mount.
+  const portraitOnMountRef = useRef(false);
+
+  // We'll still track the current orientation for layout (stack vs. side by side).
+  const [isPortrait, setIsPortrait] = useState(false);
+
+  // These control the animations:
   const [visibleItems, setVisibleItems] = useState(0);
   const [showTitle, setShowTitle] = useState(false);
   const [showImage, setShowImage] = useState(false);
 
-  const updateImageSize = () => {
-    if (infoRef.current) {
-      // Use the height of the info area, but clamp so it's not too big
-      setImageSize(infoRef.current.offsetHeight);
-    }
-  };
-
+  // 1) On first mount, decide if we started in portrait.
+  //    Also attach a resize listener to keep isPortrait updated for layout.
   useEffect(() => {
-    // Initial title animation
+    const checkOrientation = () => {
+      setIsPortrait(window.innerHeight > window.innerWidth);
+    };
+    // Check on mount
+    const startedPortrait = window.innerHeight > window.innerWidth;
+    portraitOnMountRef.current = startedPortrait;
+    setIsPortrait(startedPortrait);
+
+    // Listen for orientation changes to adjust layout (not animations)
+    window.addEventListener("resize", checkOrientation);
+    return () => {
+      window.removeEventListener("resize", checkOrientation);
+    };
+  }, []);
+
+  // 2) Run animations (or skip) depending on whether we STARTED in portrait.
+  useEffect(() => {
+    // If we started in portrait, skip all animations, show final state immediately
+    if (portraitOnMountRef.current) {
+      setShowTitle(true);
+      setShowImage(true);
+      setVisibleItems(info.length); // Reveal all rows
+      return;
+    }
+
+    // Otherwise, run the normal animations:
     setTimeout(() => setShowTitle(true), 50);
 
-    // Row animations
-    info.forEach((_: PersonalInfo, index: number) => {
+    info.forEach((_, index) => {
       setTimeout(() => {
-        setVisibleItems(index + 1);
-        setTimeout(updateImageSize, 10);
+        setVisibleItems((prev) => index + 1);
       }, 150 + index * 35);
     });
 
-    // Image animation - appears after all rows
     const rowsAnimationTime = 150 + info.length * 35 + 600;
     setTimeout(() => setShowImage(true), rowsAnimationTime);
   }, []);
 
-  useEffect(() => {
-    window.addEventListener("resize", updateImageSize);
-    return () => window.removeEventListener("resize", updateImageSize);
-  }, []);
-
-  useEffect(() => {
-    updateImageSize();
-  }, [visibleItems]);
-
   return (
-    <div className="flex flex-col md:flex-row items-start p-4 gap-4">
+    <div
+      className={`
+        p-4 gap-4 items-start
+        flex
+        ${isPortrait ? "flex-col" : "flex-col md:flex-row md:items-center"}
+      `}
+    >
       {/* Image container */}
       <div
         className={`
-          transition-all duration-200 shrink-0 overflow-hidden
+          transition-all duration-300 overflow-hidden
           ${showImage ? "opacity-100" : "opacity-0"}
+          // If portrait or small, just full width. Otherwise, 1/3 width at md+
+          ${isPortrait ? "w-full" : "w-full md:w-1/3 self-center"}
         `}
         style={{
-          // Clamp the size so it doesn't get too large or too tiny
-          width: showImage ? `clamp(200px, ${imageSize}px, 600px)` : "0",
-          height: showImage ? `clamp(200px, ${imageSize}px, 600px)` : "0",
-          transform: `translateX(${showImage ? "0" : "-100%"})`,
+          transform: `translateX(${showImage ? "0%" : "-100%"})`,
         }}
       >
-        <div className="relative w-full h-full rounded-lg transition-all duration-300">
+        {/* Keep aspect-square or remove if you prefer a different ratio */}
+        <div className="relative w-full aspect-square">
           <Image
             src="/images/grim.jpg"
             alt="Profile"
@@ -69,7 +91,11 @@ const Neofetch = () => {
       </div>
 
       {/* Info container */}
-      <div ref={infoRef}>
+      <div
+        // If portrait -> full width. Otherwise -> 2/3 at md+
+        className={isPortrait ? "w-full" : "w-full md:w-2/3"}
+        ref={infoRef}
+      >
         <div
           className={`
             mb-4 transition-transform duration-200
@@ -79,6 +105,7 @@ const Neofetch = () => {
           <div className="font-bold text-blue-500">sam@santiagosayshey.me</div>
           <div className="text-blue-500">-----------------------</div>
         </div>
+
         <div
           className="grid gap-2"
           style={{
@@ -101,7 +128,7 @@ const Neofetch = () => {
               >
                 {label}:
               </div>
-              {/* Value / Link */}
+              {/* Value */}
               <div
                 className="flex items-center transition-all duration-200"
                 style={{
@@ -116,9 +143,9 @@ const Neofetch = () => {
                   <Link
                     href={link}
                     target="_blank"
-                    className="text-blue-400 underline underline-offset-2 hover:text-blue-500
-                               dark:text-blue-400 dark:hover:text-blue-300
-                               cursor-pointer transition-colors"
+                    className="text-blue-400 underline underline-offset-2
+                               hover:text-blue-500 dark:text-blue-400
+                               dark:hover:text-blue-300 cursor-pointer transition-colors"
                   >
                     {value}
                   </Link>
