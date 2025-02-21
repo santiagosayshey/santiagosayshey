@@ -61,7 +61,7 @@ const LastFmDisplay = ({ nowOnly = false }) => {
       try {
         const lastTrack = await getLastPlayedTrack();
         setTrack(lastTrack);
-      } catch (err) {
+      } catch {
         setError("Failed to fetch track data");
       } finally {
         setLoading(false);
