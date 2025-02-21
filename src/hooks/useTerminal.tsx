@@ -1,20 +1,21 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import type { ReactNode } from "react";
-import Neofetch from "@/components/Neofetch";
+import { commands } from "@/commands";
 
 type TerminalLine = {
   id: number;
   type: "command" | "output";
-  content: string | ReactNode;
+  content: ReactNode;
 };
 
 export const useTerminal = () => {
   const [history, setHistory] = useState<TerminalLine[]>([]);
   const [currentLineId, setCurrentLineId] = useState(0);
   const initialized = useRef(false);
+  const neofetchComplete = useRef(false);
 
   const addToHistory = useCallback(
-    (type: "command" | "output", content: string | ReactNode) => {
+    (type: "command" | "output", content: ReactNode) => {
       setHistory((prev) => [...prev, { id: currentLineId, type, content }]);
       setCurrentLineId((prev) => prev + 1);
     },
@@ -22,20 +23,48 @@ export const useTerminal = () => {
   );
 
   const executeCommand = useCallback(
-    async (command: string) => {
-      addToHistory("command", command);
+    async (commandLine: string) => {
+      addToHistory("command", commandLine);
 
-      switch (command.toLowerCase().trim()) {
-        case "clear":
-          setHistory([]);
-          break;
+      if (commandLine.toLowerCase().trim() === "clear") {
+        setHistory([]);
+        return;
+      }
 
-        case "neofetch":
-          addToHistory("output", <Neofetch />);
-          break;
+      const args = commandLine.trim().split(/\s+/);
+      const commandName = args[0].toLowerCase();
+      const commandArgs = args.slice(1);
 
-        default:
-          addToHistory("output", `Command not found: ${command}`);
+      // Single neofetch check that triggers whoami
+      if (commandName === "neofetch" && !initialized.current) {
+        setTimeout(() => {
+          neofetchComplete.current = true;
+          executeCommand("whoami");
+        }, 1800);
+      }
+
+      if (
+        commandName === "whoami" &&
+        !neofetchComplete.current &&
+        !initialized.current
+      ) {
+        return;
+      }
+
+      const command = commands[commandName];
+      if (command) {
+        try {
+          const output = await command.execute(commandArgs);
+          addToHistory("output", output);
+        } catch (err) {
+          const error = err as Error;
+          addToHistory(
+            "output",
+            `Error executing command: ${error.message || "Unknown error"}`
+          );
+        }
+      } else {
+        addToHistory("output", `Command not found: ${commandName}`);
       }
     },
     [addToHistory]
@@ -46,7 +75,7 @@ export const useTerminal = () => {
       executeCommand("neofetch");
       initialized.current = true;
     }
-  }, []);
+  }, [executeCommand]);
 
   return {
     history,

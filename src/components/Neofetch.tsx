@@ -80,9 +80,7 @@ const Neofetch = () => {
             showTitle ? "translate-x-0" : "-translate-x-full"
           }`}
         >
-          <div className="font-bold text-blue-500">
-            guest@santiagosayshey.me
-          </div>
+          <div className="font-bold text-blue-500">sam@santiagosayshey.me</div>
           <div className="text-blue-500">-----------------------</div>
         </div>
         <div

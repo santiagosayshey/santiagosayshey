@@ -100,7 +100,7 @@ export default function Terminal() {
 
           {/* Center title */}
           <div className="absolute left-1/2 transform -translate-x-1/2 text-gray-600 dark:text-gray-300">
-            guest@santiagosayshey.me
+            terminal.santiagosayshey.me
           </div>
 
           {/* Right side buttons */}
@@ -120,7 +120,7 @@ export default function Terminal() {
         {/* Terminal Content */}
         <div
           ref={terminalRef}
-          className="bg-white dark:bg-[#1A1D23] h-[800px] p-4 overflow-y-auto cursor-text"
+          className="bg-white dark:bg-[#1A1D23] h-[1000px] p-4 overflow-y-auto cursor-text"
           onClick={handleTerminalClick}
           style={{ fontFamily: "MesloLGS NF, monospace" }}
         >
@@ -135,9 +135,9 @@ export default function Terminal() {
                     time={getTime()}
                   />
                 ) : (
-                  <div className="text-gray-800 dark:text-gray-200 mb-2">
+                  <pre className="text-gray-800 dark:text-gray-200 mb-2 whitespace-pre-wrap font-[inherit]">
                     {line.content}
-                  </div>
+                  </pre>
                 )}
               </div>
             ))}
