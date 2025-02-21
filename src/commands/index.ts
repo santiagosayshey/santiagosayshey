@@ -5,6 +5,7 @@ import { neofetchCommand } from "./neofetch";
 import { echoCommand } from "./echo";
 import { contactCommand } from "./contact";
 import { aboutCommand } from "./about";
+import { projectsCommand } from "./projects";
 
 export const commands: Record<string, Command> = {
   help: helpCommand,
@@ -13,4 +14,5 @@ export const commands: Record<string, Command> = {
   echo: echoCommand,
   contact: contactCommand,
   about: aboutCommand,
+  projects: projectsCommand,
 };
