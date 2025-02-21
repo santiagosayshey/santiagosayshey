@@ -7,7 +7,6 @@ import { echoCommand } from "./echo";
 import { contactCommand } from "./contact";
 import { aboutCommand } from "./about";
 import { projectsCommand } from "./projects";
-import { lsCommand } from "./ls";
 import { lastfmCommand } from "./lastfm";
 
 export const commands: Record<string, Command> = {
@@ -18,6 +17,5 @@ export const commands: Record<string, Command> = {
   contact: contactCommand,
   about: aboutCommand,
   projects: projectsCommand,
-  ls: lsCommand,
   lastfm: lastfmCommand,
 };
