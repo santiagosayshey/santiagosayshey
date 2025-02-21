@@ -51,7 +51,7 @@ const Neofetch = () => {
 
     info.forEach((_, index) => {
       setTimeout(() => {
-        setVisibleItems((prev) => index + 1);
+        setVisibleItems(() => index + 1);
       }, 150 + index * 35);
     });
 
